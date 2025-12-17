@@ -1,0 +1,2 @@
+poetry run python3 process_pdf.py /mnt/c/Users/defne/Documents/Art/Finished_pieces/scans_20251215/ /mnt/c/Users/defne/Documents/Art/Finished_pieces/scans_20251215/png  20251215_scan
+poetry run python3 process_pdf.py /mnt/c/Users/defne/Documents/Art/Finished_pieces/scans_20251216/ /mnt/c/Users/defne/Documents/Art/Finished_pieces/scans_20251216/png  20251216_scan

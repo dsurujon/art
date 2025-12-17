@@ -1,0 +1,18 @@
+[[package]]
+name = "PyMuPDF"
+version = "1.26.7"
+description = "A high performance Python library for data extraction, analysis, conversion & manipulation of PDF (and other) documents."
+category = "main"
+optional = false
+python-versions = ">=3.10"
+
+[package.source]
+type = "url"
+url = "https://github.com/pymupdf/PyMuPDF/archive/refs/tags/1.26.7.tar.gz"
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.10"
+content-hash = "4b9cdcb9ba4c7e69807ac4ddf601fdb58cad4dc4fda96b95f8f3cee2eaf350f5"
+
+[metadata.files]
+PyMuPDF = []
