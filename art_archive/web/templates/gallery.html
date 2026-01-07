@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="tags">
+  <a href="/" {% if not active_tag %}class="active"{% endif %}>all</a>
+  {% for tag in tags %}
+    <a href="/?tag={{ tag }}" {% if tag == active_tag %}class="active"{% endif %}>
+      {{ tag }}
+    </a>
+  {% endfor %}
+</div>
+
+<div class="grid">
+  {% for id, slug, title in artworks %}
+    <a href="/artwork/{{ slug }}" class="thumb">
+      <img src="/images/{{ slug }}/thumb_600px.jpg" alt="{{ title }}">
+      <div class="caption">{{ title }}</div>
+    </a>
+  {% endfor %}
+</div>
+
+{% endblock %}

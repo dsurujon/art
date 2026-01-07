@@ -1,0 +1,44 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header h1 {
+  margin-bottom: 1rem;
+}
+
+.tags a {
+  margin-right: 0.5rem;
+  opacity: 0.6;
+}
+
+.tags a.active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.thumb img {
+  width: 100%;
+  display: block;
+}
+
+.caption {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.full {
+  max-width: 100%;
+  margin: 1rem 0;
+}

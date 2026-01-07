@@ -47,4 +47,11 @@ Images are stored on disk, not in the database. All derivatives are reproducible
 4. Run the interactive tagging script `scripts/tag.py`
    1. Will run through each piece
    2. Ask you to add/remove tags interactively
-5. 
+
+## Web app
+**Dependencies**: fastapi, uvicorn, jinja2    
+From inside art_archive, run: 
+```
+uvicorn web.app:app --reload
+```
+Then open `http://127.0.0.1:8000` for the web interface

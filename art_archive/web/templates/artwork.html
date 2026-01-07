@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>{{ art[1] }}</h2>
+<p><em>{{ art[2] }}{% if art[3] %}, {{ art[3] }}{% endif %}</em></p>
+
+<img class="full" src="/images/{{ slug }}/web_2400px.jpg">
+
+<p>{{ art[4] }}</p>
+
+<p class="tags">
+  {% for tag in tags %}
+    <a href="/?tag={{ tag }}">{{ tag }}</a>
+  {% endfor %}
+</p>
+
+{% endblock %}
