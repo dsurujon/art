@@ -43,6 +43,20 @@ def init_db(conn):
         FOREIGN KEY (artwork_id) REFERENCES artwork(id)
     )
     """)
+    cur.execute("""
+    CREATE TABLE tags (
+        id INTEGER PRIMARY KEY,
+        name TEXT UNIQUE
+    );
+                """)
+    cur.execute("""
+    CREATE TABLE artwork_tags (
+        artwork_id INTEGER,
+        tag_id INTEGER,
+        PRIMARY KEY (artwork_id, tag_id)
+    );
+    """)
+                 
     conn.commit()
     print("Database initialized.")
 
