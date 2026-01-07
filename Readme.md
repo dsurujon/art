@@ -19,14 +19,13 @@ This is a system I am working on in order to archive the art pieces I have at ha
 art_archive/
 ├── originals/        # Archival images (never overwritten)
 │   └── <slug>/
-│       └── main.tif
+│       └── main.JPEG
 ├── derivatives/      # Script-generated images
 │   └── <slug>/
-│       ├── print_300dpi.tif
 │       ├── web_2400px.jpg
 │       └── thumb_600px.jpg
 ├── metadata/
-│   └── ingest.csv    # Batch metadata entry for new works
+│   └── metadata.csv    # Batch metadata entry for all works
 ├── db/
 │   └── archive.db    # SQLite database (authoritative metadata)
 └── scripts/          # Ingest, image processing, export utilities
@@ -45,8 +44,7 @@ Images are stored on disk, not in the database. All derivatives are reproducible
    2. Inserts artwork into the database
    3. Generates image derivatives
    4. Registers image paths and metadata
-4. Query the database to generate:
-   - Website galleries
-   - Print selections
-   - Portfolio PDFs
-   - Social media queues
+4. Run the interactive tagging script `scripts/tag.py`
+   1. Will run through each piece
+   2. Ask you to add/remove tags interactively
+5. 
