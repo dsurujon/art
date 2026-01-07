@@ -9,4 +9,44 @@ I wanted to at least get the PDFs split into individual pages first, and saved a
 ```
 python3 process_pdf.py input_pdf_dir output_png_dir prefix
 ```
-**Dependencies**: [PyMuPDF](https://github.com/pymupdf/PyMuPDF/releases/tag/1.26.7)
+**Dependencies**: [PyMuPDF](https://github.com/pymupdf/PyMuPDF/releases/tag/1.26.7)      
+Following this, I crop each png into original pieces by hand.     
+
+## Archiving 
+This is a system I am working on in order to archive the art pieces I have at hand. I start from high-quality scans or photos and generate print-ready, web and thumbnail derivatives for each image, and store artwork metadata (title, medium, size, availability, descriptions) in a relational database.     
+
+```
+art_archive/
+├── originals/        # Archival images (never overwritten)
+│   └── <slug>/
+│       └── main.tif
+├── derivatives/      # Script-generated images
+│   └── <slug>/
+│       ├── print_300dpi.tif
+│       ├── web_2400px.jpg
+│       └── thumb_600px.jpg
+├── metadata/
+│   └── ingest.csv    # Batch metadata entry for new works
+├── db/
+│   └── archive.db    # SQLite database (authoritative metadata)
+└── scripts/          # Ingest, image processing, export utilities
+```
+
+Each artwork is identified by a stable `slug`, which is used consistently across
+folders, filenames, database records, and URLs. The archive uses a relational SQLite database to store:
+- Artwork metadata (title, year, medium, size, availability)
+- Image records (role, path, dimensions, color profile)
+Images are stored on disk, not in the database. All derivatives are reproducible from the original files.    
+#### Workflow
+1, Scan or photograph artwork → save as `originals/<slug>/main.JPEG`
+2. Add a row to `metadata/metadata.csv`
+3. Run the build script `scripts/build.py`
+   1. Initializes the database 
+   2. Inserts artwork into the database
+   3. Generates image derivatives
+   4. Registers image paths and metadata
+4. Query the database to generate:
+   - Website galleries
+   - Print selections
+   - Portfolio PDFs
+   - Social media queues
